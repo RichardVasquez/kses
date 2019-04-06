@@ -152,7 +152,7 @@
 				}
 				$string = $this->removeNulls($string);
 				//	Remove JavaScript entities from early Netscape 4 versions
-				$string = preg_replace('%&\s*\{[^}]*(\}\s*;?|$)%', '', $string);
+				$string = preg_replace_callback('%(<' . '[^>]*' . '(>|$)' . '|>)%', function ($m) { return $this->stripTags($m[1]); }, $string);
 				$string = $this->normalizeEntities($string);
 				$string = $this->filterKsesTextHook($string);
 				$string = preg_replace('%(<' . '[^>]*' . '(>|$)' . '|>)%e', "\$this->stripTags('\\1')", $string);
@@ -535,9 +535,9 @@
 
 				#	Change numeric entities to valid 16 bit values
 
-				$string = preg_replace(
-					'/&amp;#0*([0-9]{1,5});/e',
-					'\$this->normalizeEntities16bit("\\1")',
+				$string = preg_replace_callback(
+					'/&amp;#0*([0-9]{1,5});/',
+					function ($m) { return $this->normalizeEntities16bit($m[1]); },
 					$string
 				);
 
@@ -927,10 +927,10 @@
 				while ($string != $string2)
 				{
 					$string2 = $string;
-					$string  =  preg_replace(
+					$string  =  preg_replace_callback(
 										'/^((&[^;]*;|[\sA-Za-z0-9])*)'.
-										'(:|&#58;|&#[Xx]3[Aa];)\s*/e',
-										'\$this->filterProtocols("\\1")',
+										'(:|&#58;|&#[Xx]3[Aa];)\s*/',
+										function ($m) { return $this->filterProtocols($m[1]); },
 										$string
 									);
 				}
@@ -1145,8 +1145,8 @@
 			 */
 			private function decodeEntities($string)
 			{
-				$string = preg_replace('/&#([0-9]+);/e', 'chr("\\1")', $string);
-				$string = preg_replace('/&#[Xx]([0-9A-Fa-f]+);/e', 'chr(hexdec("\\1"))', $string);
+				$string = preg_replace_callback('/&#([0-9]+);/', function ($m) { return chr($m[1]); }, $string);
+				$string = preg_replace_callback('/&#[Xx]([0-9A-Fa-f]+);/', function ($m) { return chr(hexdec($m[1])); }, $string);
 				return $string;
 			}
 
