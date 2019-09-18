@@ -20,12 +20,7 @@
 #
 # *** CONTACT INFORMATION ***
 #
-# E-mail:      metaur at users dot sourceforge dot net
-# Web page:    http://sourceforge.net/projects/kses
-# Paper mail:  Ulf Harnhammar
-#              Ymergatan 17 C
-#              753 25  Uppsala
-#              SWEDEN
+# Web page:    https://github.com/RichardVasquez/kses
 #
 # [kses strips evil scripts!]
 

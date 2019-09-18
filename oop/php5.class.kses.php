@@ -97,8 +97,7 @@
 	*	+ Added methods DumpProtocols(), DumpMethods()
 	*
 	*	@author     Richard R. Vásquez, Jr. (Original procedural code by Ulf Härnhammar)
-	*	@link       http://sourceforge.net/projects/kses/ Home Page for Kses
-	*	@link       http://chaos.org/contact/ Contact page with current email address for Richard Vasquez
+	*	@link       https://github.com/RichardVasquez/kses Home Page for Kses
 	*	@copyright  Richard R. Vásquez, Jr. 2005
 	*	@version    PHP5 OOP 1.0.2
 	*	@license    http://www.gnu.org/licenses/gpl.html GNU Public License

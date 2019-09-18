@@ -5,8 +5,8 @@ kses AUTHORS
   metaur at users dot sourceforge dot net
   http://www.advogato.org/person/metaur/
 
-* Richard R. Vásquez, Jr. (coder of object-oriented kses)
-  contact him at http://chaos.org/contact/
+* Richard R. VÃ¡squez, Jr. (coder of object-oriented kses)
+  contact him via an issue or PR at https://github.com/RichardVasquez/kses
 
 
 THANKS TO
@@ -19,7 +19,7 @@ THANKS TO
 * Hendy Irawan (bug report and documentation suggestion)
 * dude21 (feature suggestion)
 * Christian Bolstad (documentation suggestion)
-* SourceForge (project hosting)
+* GitHub for hosting
 
 Thanks also go to a lot of people who posted to the Bugtraq and
 Webappsec mailing lists about XSS or HTML filters. They gave us some

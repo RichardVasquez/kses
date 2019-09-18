@@ -1,6 +1,10 @@
 kses ChangeLog
 ==============
 
+2018-2019
+	* Moved to GitHub
+	* Accepted a PR from Linus Unnebäck to keep up with PHP changes.
+
 KSES5
 	* 1.0.2
 KSES4

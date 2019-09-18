@@ -2,7 +2,8 @@
 
 	//	This is a q&d program that shows some of the results of
 	//	running KSES.  If you have further questions, check the
-	//	current valid email address at http://chaos.org/contact/
+	//	current repository at https://github.com/RichardVasquez/kses
+	//	and create an issue there.
 
 	//	Make sure we're in a usable PHP environment
 	if(substr(phpversion(), 0, 1) < 4)
