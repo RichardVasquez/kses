@@ -145,10 +145,10 @@
 			 */
 			public function Parse($string = "")
 			{
-				if (get_magic_quotes_gpc())
-				{
-					$string = stripslashes($string);
-				}
+//				if (get_magic_quotes_gpc())
+//				{
+//					$string = stripslashes($string);
+//				}
 				$string = $this->removeNulls($string);
 				//	Remove JavaScript entities from early Netscape 4 versions
 				$string = preg_replace_callback('%(<' . '[^>]*' . '(>|$)' . '|>)%', function ($m) { return $this->stripTags($m[1]); }, $string);
