@@ -1,18 +1,15 @@
-kses TODO
-=========
+# KSES TODO
 
 * create a nice homepage with interactive kses testing
 
-* remove stuff in between <script>..</script> and <style>..</style>
+* remove stuff in between &lt;script>..&lt;/script> and &lt;style>..&lt;/style>
 
 * better fix for chr(173) bug and try to allow for "style:" where people
   want to use it
 
-* XHTML tags of the style <br/> instead of <br />
-  This is related to a small bug with <a href="blah />
+* XHTML tags of the style &lt;br/> instead of &lt;br />
+  This is related to a small bug with &lt;a href="blah />
   Solution: rewrite parser.
-
-(* rewrite document to XHTML or HTML)
 
 * more attribute value checks
 
@@ -25,13 +22,11 @@ kses TODO
   then turned to entities?) .. perhaps turn to comments as well?
 
 * ">" in HTML tags
-  <img src="blah.gif" alt="x > 5">
-  Not very important, but..
+  &lt;img src="blah.gif" alt="x > 5">
+  Not very important, but...
 
-(* make document well-formed.. there is HTML Tidy, but perhaps we want this
+(* make document well-formed... there is HTML Tidy, but perhaps we want this
    functionality in kses itself?)
-
-* port to other programming languages to achieve world domination
 
 * lots of testing
 

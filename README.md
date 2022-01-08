@@ -68,16 +68,9 @@ Information for the previous version of this code:
         'br' => array());
 
     $val = $_POST['val'];
-    if (get_magic_quotes_gpc())
-    {
-        $val = stripslashes($val);
-    }
-    // You must strip slashes from magic quotes, or kses will get confused.
-
     $val = kses($val, $allowed); # The filtering takes place here.
 
     // Do something with $val.
-
 ```
 
 The data provided in the ```$allowed``` array has key values that define the allowed
@@ -92,111 +85,62 @@ an XSS hole by mistake. Some attributes that you should consider carefully inclu
   1. style
   2. all intrinsic events attributes (i.e., onMouseOver, onClick, etc.)
 
-# TODO - Consider removal of this
+## PHP Version Requirements
+The minimal version of PHP tested on was PHP 5.6.  Earlier versions of PHP
+will not work.
 
-_Considering this page https://en.wikipedia.org/wiki/Magic_quotes , it looks like
-magic_quotes isn't an issue since PHP 5.4, and I'm looking at the floor for this
-to be PHP 5.6.  Make a note for folks to use kses 0.2.2 if they're earlier._
+This removes the 0.2.2 requirement for checking against the ```get_magic_quotes_gpc()```
+configuration setting, along with ```addslashes()``` and ```stripslashes()```.
 
-All HTML input for kses must be cleaned of slashes coming from magic quotes.
-If the rest of your code requires these slashes to be present, you can always
-add them again after calling kses with a simple addslashes() call.
+## Compatibility
+Assuming your PHP version is compatible, this should be a simple replacement
+providing backwards compatibility.  Check the documentation directory for more
+information.
 
-You should take a look at the documentation in the docs/ directory and the
-examples in the examples/ directory, to get more information on how to use
-kses. The object-oriented versions of kses are also worth checking out, and
-they're included in the oop/ directory.
-
-## License
-
-Licensed under [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0)
-
-You should take a look at the documentation in the docs/ directory and the
-examples in the examples/ directory, to get more information on how to use
-kses. The object-oriented versions of kses are also worth checking out, and
-they're included in the oop/ directory.
-
-
-* UPGRADING TO 0.2.2 *
-
-
-kses 0.2.2 is backwards compatible with all previous releases, so upgrading
-should just be a matter of using a new version of kses.php instead of an old
-one.
-
-
-* NEW VERSIONS, MAILING LISTS AND BUG REPORTS *
-
-
-If you want to download new versions, subscribe to the kses-general mailing
-list or even take part in the development of kses, we refer you to its
-homepage at  http://sourceforge.net/projects/kses . New developers and beta
-testers are more than welcome!
-
-If you have any bug reports, suggestions for improvement or simply want to tell
-us that you use kses for some project, feel free to post to the kses-general
-mailing list. If you have found any security problems (particularly XSS,
-naturally) in kses, please contact Ulf privately at  metaur at users dot
-sourceforge dot net  so he can correct it before you or someone else tells the
-public about it.
-
-(No, it's not a security problem in kses if some program that uses it allows a
-bad attribute, silly. If kses is told to accept the element body with the
-attributes style and onLoad, it will accept them, even if that's a really bad
-idea, securitywise.)
-
-
-* OTHER HTML FILTERS *
-
-
-Here are the other stand-alone, open source HTML filters that we currently know
-of:
+## Other Filter Tools
 
 * Htmlfilter for PHP - the filter from Squirrelmail
+  
   PHP
+  
   Konstantin Riabitsev
-  http://linux.duke.edu/projects/mini/htmlfilter/
+  
+  https://web.archive.org/web/20070103015820/http://linux.duke.edu/projects/mini/htmlfilter/
 
 * HTML::StripScripts and related CPAN modules
+  
   Perl
-  Nick Cleaton
-  http://search.cpan.org/perldoc?HTML%3A%3AStripScripts
+  
+  Clinton Gormley
+  
+  https://metacpan.org/pod/HTML::StripScripts
 
-* SafeHtmlChecker [is this really open source?]
-  PHP
-  Simon Willison
-  http://simon.incutio.com/archive/2003/02/23/safeHtmlChecker
+* Submit a PR with a modification to this readme for additional libraries to add.
 
-There are also a lot of HTML filters that were written specifically for some
-program. Some of them are better than others.
+## Miscellaneous
 
-Please write to the kses-general mailing list if you know of any other
-stand-alone, open-source filters.
-
-
-* DEDICATION *
-
-
-kses 0.2.2 is dedicated to Audrey Tautou and Jean-Pierre Jeunet.
-
-
-* MISC *
-
-
-The kses code is based on an HTML filter that Ulf wrote on his own back in 2002
+The kses code based on an HTML filter that Ulf wrote on his own back in 2002
 for the open-source project Gnuheter ( http://savannah.nongnu.org/projects/
 gnuheter ). Gnuheter is a fork from PHP-Nuke. The HTML filter has been
 improved a lot since then.
 
-To stop people from having sleepless nights, we feel the urgent need to state
-that kses doesn't have anything to do with the KDE project, despite having a
-name that starts with a K.
-
-In case someone was wondering, Ulf is available for kses-related consulting.
+Richard was the creator of the OOP version as he needed it for his blog back
+in the day.  Then he found it on SourceForge and knew it belonged in a better
+place as [SourceForge had turned evil](https://www.infoworld.com/article/2929732/sourceforge-commits-reputational-suicide.html).
+Regardless of any changes SourceForge may have made since then, I haven't
+trusted them since, and I doubt if I ever will.  I also haven't had any
+problems with GitHub, so for the duration, I'll keep it here and tinker with it
+as I find time.
 
 Finally, the name kses comes from the terms XSS and access. It's also a
 recursive acronym (every open-source project should have one!) for "kses
 strips evil scripts".
 
+## Dedications
 
-// Ulf and the kses development group, February 2005
+  * kses 0.2.2 is dedicated to Audrey Tautou and Jean-Pierre Jeunet.
+  * kses 2022 is dedicated to Natalie, Tracie, and Dia.
+
+## License
+
+Licensed under [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0)

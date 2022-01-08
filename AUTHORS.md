@@ -1,16 +1,9 @@
-kses AUTHORS
-============
+# KSES AUTHORS
+* Richard R. Vasquez (current maintainer)
+* Ulf Harnhammar (original coder)
+  If you're out there, Ulf, let me know, and I'll link you.
 
-* Ulf Harnhammar (main coder, project leader)
-  metaur at users dot sourceforge dot net
-  http://www.advogato.org/person/metaur/
-
-* Richard R. Vásquez, Jr. (coder of object-oriented kses)
-  contact him via an issue or PR at https://github.com/RichardVasquez/kses
-
-
-THANKS TO
-=========
+## THANKS TO
 
 * Peter Valach (code review and feature suggestions)
 * Simon Cornelius P. Umacob (testing)
@@ -20,7 +13,6 @@ THANKS TO
 * dude21 (feature suggestion)
 * Christian Bolstad (documentation suggestion)
 * GitHub for hosting
-
-Thanks also go to a lot of people who posted to the Bugtraq and
+* Thanks also go to a lot of people who posted to the Bugtraq and
 Webappsec mailing lists about XSS or HTML filters. They gave us some
 valuable insights.
