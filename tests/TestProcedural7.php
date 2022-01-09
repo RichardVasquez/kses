@@ -6,8 +6,9 @@
 /** @noinspection PhpMissingParamTypeInspection */
 
 const DS = DIRECTORY_SEPARATOR;
-include_once '..' . DS . 'kses.php';
+include_once '..' . DS . '_new.php';
 
+use function Kses\kses;
 use PHPUnit\Framework\TestCase;
 
 /**

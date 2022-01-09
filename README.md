@@ -8,6 +8,8 @@ it.  So here we are.
 A new branch, a new version, hopefully new code, and
 some unit testing.
 
+Documentation is currently in [DOCUMENTATION.md](DOCUMENTATION.md)
+
 ## Introduction
 
 Welcome to kses - an HTML filter written in PHP.

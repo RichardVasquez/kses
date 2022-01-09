@@ -1,7 +1,7 @@
 # KSES AUTHORS
 * Richard R. Vasquez (current maintainer)
-* Ulf Harnhammar (original coder)
-  If you're out there, Ulf, let me know, and I'll link you.
+* Ulf Harnhammar (original developer)
+  If you're out there, Ulf, let me know, so I can link you.
 
 ## THANKS TO
 

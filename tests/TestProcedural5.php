@@ -5,7 +5,9 @@
 /** @noinspection HtmlUnknownTarget */
 
 const DS = DIRECTORY_SEPARATOR;
-include_once '..' . DS . 'kses.php';
+include_once '..' . DS . '_new.php';
+
+use function Kses\kses;
 
 /**
  * Class TestProcedural5
@@ -16,156 +18,156 @@ include_once '..' . DS . 'kses.php';
  */
 class TestProcedural5 extends PHPUnit_Framework_TestCase
 {
-    public function test_basic_equivalency()
+    public function testBasicEquivalency()
     {
         $html_before = 'kses \'kses\' kses "kses" kses \\kses\\';
         $html_after =  $html_before;
 
-        $this->equivalency_test($html_before, $html_after);
+        $this->equivalencyTest($html_before, $html_after);
     }
 
-    public function test_basic_remove_tag()
+    public function testBasicRemoveTag()
     {
         $html_before = 'kses <br>';
         $html_after =  'kses ';
 
-        $this->equivalency_test($html_before, $html_after);
+        $this->equivalencyTest($html_before, $html_after);
     }
 
-    public function test_basic_tag_correction()
+    public function testBasicTagCorrection()
     {
         $html_before = 'kses <  BR  >';
         $html_after =  'kses <BR>';
         $allowed = array('br'=>array());
 
-        $this->equivalency_test($html_before, $html_after, $allowed);
+        $this->equivalencyTest($html_before, $html_after, $allowed);
     }
 
-    public function test_basic_entity_expansion()
+    public function testBasicEntityExpansion()
     {
         $html_before = 'kses > 5 <br>';
         $html_after =  'kses &gt; 5 <br>';
         $allowed = array('br'=>array());
 
-        $this->equivalency_test($html_before, $html_after, $allowed);
+        $this->equivalencyTest($html_before, $html_after, $allowed);
     }
 
-    public function test_basic_tag_close()
+    public function testBasicTagClose()
     {
         $html_before = 'kses <  br';
         $html_after =  'kses <br>';
         $allowed = array('br'=>array());
 
-        $this->equivalency_test($html_before, $html_after, $allowed);
+        $this->equivalencyTest($html_before, $html_after, $allowed);
     }
 
-    public function test_basic_remove_attribute()
+    public function testBasicRemoveAttribute()
     {
         $html_before = 'kses <a href=5>';
         $html_after =  'kses <a>';
         $allowed = array('a'=>array());
 
-        $this->equivalency_test($html_before, $html_after, $allowed);
+        $this->equivalencyTest($html_before, $html_after, $allowed);
     }
 
-    public function test_basic_quote_attribute_value()
+    public function testBasicQuoteAttributeValue()
     {
         $html_before = 'kses <a href=5>';
         $html_after =  'kses <a href="5">';
         $allowed = array('a'=>array('href' => 1));
 
-        $this->equivalency_test($html_before, $html_after, $allowed);
+        $this->equivalencyTest($html_before, $html_after, $allowed);
     }
 
-    public function test_basic_keep_unvalued_attribute()
+    public function testBasicKeepUnvaluedAttribute()
     {
         $html_before = 'kses <a href>';
         $html_after =  $html_before;
         $allowed = array('a'=>array('href' => 1));
 
-        $this->equivalency_test($html_before, $html_after, $allowed);
+        $this->equivalencyTest($html_before, $html_after, $allowed);
     }
 
-    public function test_basic_quote_single_unquoted()
+    public function testBasicQuoteSingleUnquoted()
     {
         $html_before = 'kses <a href href=5 href=\'5\' href="5" dummy>';
         $html_after =  'kses <a href href="5" href=\'5\' href="5">';
         $allowed = array('a'=>array('href' => 1));
 
-        $this->equivalency_test($html_before, $html_after, $allowed);
+        $this->equivalencyTest($html_before, $html_after, $allowed);
     }
 
-    public function test_basic_keep_backslashes()
+    public function testBasicKeepBackslashes()
     {
         $html_before = 'kses <a href="kses\\\\kses">';
         $html_after =  $html_before;
         $allowed = array('a'=>array('href' => 1));
 
-        $this->equivalency_test($html_before, $html_after, $allowed);
+        $this->equivalencyTest($html_before, $html_after, $allowed);
     }
 
-    public function test_basic_keep_within_maxlength()
+    public function testBasicKeepWithinMaxlength()
     {
         $html_before = 'kses <a href="xxxxxx">';
         $html_after =  $html_before;
         $allowed = array('a' => array('href' => array('maxlen' => 6)));
 
-        $this->equivalency_test($html_before, $html_after, $allowed);
+        $this->equivalencyTest($html_before, $html_after, $allowed);
     }
 
-    public function test_basic_keep_past_maxlength()
+    public function testBasicKeepPastMaxlength()
     {
         $html_before = 'kses <a href="xxxxxxx">';
         $html_after =  'kses <a>';
         $allowed = array('a' => array('href' => array('maxlen' => 6)));
 
-        $this->equivalency_test($html_before, $html_after, $allowed);
+        $this->equivalencyTest($html_before, $html_after, $allowed);
     }
 
-    public function test_basic_value_check()
+    public function testBasicValueCheck()
     {
         $html_before = 'kses <a href="687">';
         $html_after =  'kses <a>';
         $allowed = array('a' => array('href' => array('maxval' => 686)));
 
-        $this->equivalency_test($html_before, $html_after, $allowed);
+        $this->equivalencyTest($html_before, $html_after, $allowed);
     }
 
-    public function test_basic_under_maxlength()
+    public function testBasicUnderMaxlength()
     {
         $html_before = 'kses <a href="xx"   /  >';
         $html_after =  'kses <a href="xx" />';
         $allowed = array('a' => array('href' => array('maxlen' => 6)));
 
-        $this->equivalency_test($html_before, $html_after, $allowed);
+        $this->equivalencyTest($html_before, $html_after, $allowed);
     }
 
-    public function test_basic_remove_protocols()
+    public function testBasicRemoveProtocols()
     {
         $html_before = 'kses <a href="JAVA java scrIpt : SCRIPT  :  alert(57)">';
         $html_after =  'kses <a href="alert(57)">';
         $allowed = array('a' => array('href' => 1));
 
-        $this->equivalency_test($html_before, $html_after, $allowed);
+        $this->equivalencyTest($html_before, $html_after, $allowed);
     }
 
-    public function test_basic_remove_chr173()
+    public function testBasicRemoveChr173()
     {
         $html_before = 'kses <a href="htt&#32; &#173;&#Xad;'.chr(173).'P://ulf">';
         $html_after =  'kses <a href="http://ulf">';
         $allowed = array('a' => array('href' => 1));
 
-        $this->equivalency_test($html_before, $html_after, $allowed);
+        $this->equivalencyTest($html_before, $html_after, $allowed);
     }
 
-    public function test_basic_multiple_tags()
+    public function testBasicMultipleTags()
     {
         $html_before = 'kses <a href="/start.php"> kses <a href="start.php">';
         $html_after =  $html_before;
 
         $allowed = array('a' => array('href' => 1));
 
-        $this->equivalency_test($html_before, $html_after, $allowed);
+        $this->equivalencyTest($html_before, $html_after, $allowed);
     }
 
     /**
@@ -173,7 +175,7 @@ class TestProcedural5 extends PHPUnit_Framework_TestCase
      * @param string $html_after Expected result
      * @param array $allowed allowed tags and attributes
      */
-    private function equivalency_test($html_before, $html_after, $allowed = array())
+    private function equivalencyTest($html_before, $html_after, $allowed = array())
     {
         $html_kses = kses($html_before, $allowed);
         $this->assertEquals($html_kses, $html_after);
