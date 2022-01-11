@@ -5,7 +5,7 @@
 /** @noinspection HtmlUnknownTarget */
 
 const DS = DIRECTORY_SEPARATOR;
-include_once '..' . DS . '_new.php';
+include_once '..' . DS . 'kses.functions.php';
 
 use function Kses\kses;
 

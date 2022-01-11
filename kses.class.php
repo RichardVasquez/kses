@@ -24,7 +24,6 @@
 
 namespace Kses;
 require_once 'kses.info.php';
-require_once '_new.php';    //  Maybe don't reinvent the wheel?  Dunno yet.
 
 /**
  *	Kses strips evil scripts!

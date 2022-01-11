@@ -8,9 +8,6 @@ AddProtocols()
 	containing a single protocol, or an array of strings, each
 	containing a single protocol.
 
-Protocols()
-	Deprecated.  Use AddProtocols()
-
 AddProtocol($protocol = "")
 	Adds a single protocol to the kses object that will be considered
 	valid during a Parse().
@@ -53,6 +50,3 @@ filterKsesTextHook($string)
 	For the OOP version of kses, this is an additional hook that allows
 	the end user to perform additional postprocessing of a string
 	that's being run through Parse().
-
-_hook()
-	Deprecated.  Use filterKsesTextHook().

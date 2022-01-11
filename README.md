@@ -1,4 +1,4 @@
-# KSES 2022
+# KSES 2022 (v 0.3.0)
 
 This is the experimental stage of the project where
 everything probably breaks for a while, but every so
@@ -59,8 +59,8 @@ Information for the previous version of this code:
 
 ```php
 <?php
-
-    include 'kses.php';
+    include_once 'kses.functions.php';
+    use function Kses\kses;
 
     $allowed = array(
         'b' => array(),

@@ -1,4 +1,4 @@
-# KSES 2022 Documentation
+# KSES 2022 (v 0.3.0) Documentation
 
 Quick notes for using the basic kses.php library from the 0.2.2 documentation.
 
