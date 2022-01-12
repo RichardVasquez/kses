@@ -1,10 +1,5 @@
 <?php
 
-//  seriously, we're testing against junk values, so hush, PhpStorm.
-/** @noinspection PhpIllegalPsrClassPathInspection */
-/** @noinspection HtmlUnknownTarget */
-/** @noinspection PhpMissingParamTypeInspection */
-
 const DS = DIRECTORY_SEPARATOR;
 include_once '..' . DS . 'kses.functions.php';
 

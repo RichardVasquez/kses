@@ -1,6 +1,7 @@
 # KSES TODO
 
-* create a nice homepage with interactive kses testing
+
+* ~~create a nice homepage with interactive kses testing~~ GitHub will do for now.
 
 * remove stuff in between &lt;script>..&lt;/script> and &lt;style>..&lt;/style>
 
@@ -11,9 +12,10 @@
   This is related to a small bug with &lt;a href="blah />
   Solution: rewrite parser.
 
-* more attribute value checks
+* more attribute value checks. A better way of establishing value checks.
 
-* more types of hooks
+* more types of hooks, more accurately a better way of having multiple hooks,
+  and ordering them
 
 * return array of removed elements and attributes
 
@@ -25,8 +27,8 @@
   &lt;img src="blah.gif" alt="x > 5">
   Not very important, but...
 
-(* make document well-formed... there is HTML Tidy, but perhaps we want this
-   functionality in kses itself?)
+* make document well-formed... there is HTML Tidy, but perhaps we want this
+   functionality in kses itself?
 
 * lots of testing
 

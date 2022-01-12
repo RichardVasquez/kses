@@ -2,7 +2,6 @@
 
 ## 0.3.0
 
-
 * Renamed supporting functions in procedural code to camelCase.
   Main function call is still ```kses($string, $allowed_html, $allowed_protocols)```
 
@@ -18,9 +17,10 @@
 
 * Bumped up the version number
 
-## ???
+* Modifications to class based kses for later expansion.
 
-2019 - No version # - Changed OOP KSES5 to use preg_replace_callback.
+## 2019
+No version # - Changed OOP KSES5 to use preg_replace_callback.
 
 ## 0.2.2 and 0.2.2-rc1
 
@@ -30,7 +30,7 @@ candidate, 0.2.2-rc1, that was released on the 30th of January 2005.
 I (Ulf) am sorry for this long delay, but I lost interest in kses for a
 while and worked on auditing C/C++ code for buffer overflows and format
 string bugs in the Debian Security Audit Project instead
-( http://www.debian.org/security/audit/ ).
+(http://www.debian.org/security/audit/).
 
 This version has the following changes:
 
@@ -38,16 +38,20 @@ This version has the following changes:
   PHP 5, which takes advantage of that PHP version's improved object
   orientation. You can find it in the oop/ directory.
 
+
 * Richard added RemoveProtocol(), RemoveProtocols() and SetProtocols()
   methods to both object-oriented kses versions. This closes SourceForge
   bug #892477.
 
+
 * Richard also did other smaller changes to the object-oriented kses
   versions. See oop/oop.kses.changelog.txt for the gory details.
+
 
 * The code that checks whether used elements and attributes are allowed
   now uses isset() to avoid notices under certain configurations. This
   hopefully closes SourceForge bug #918493.
+
 
 * The check for the Opera extra whitespace character #173 was moved so
   it only affects attribute values and nothing else. This is helpful for
@@ -55,19 +59,24 @@ This version has the following changes:
   temporary solution. A better one will show up in the next version, when
   the parser is rewritten.) This closes SourceForge bug #834645, kind of.
 
+
 * Now the program will not even look at attributes and closing XHTML
   slashes for closing HTML elements. This will make kses execute faster
   and it won't accept atrocities like &lt;/br /> anymore.
 
+
 * Moved references in examples/test.php from function calls to the function
   definition, making it better PHP.
+
 
 * The output of examples/test.php and examples/filter.php now conform fully
   to W3C's HTML specification.
 
+
 * From now on, kses releases will be distributed both as .tar.gz and .zip
   archives to please our Wintendo users. This closes SourceForge feature
   request #900380.
+
 
 * Changed to new copyright year and paper mail address.
 
@@ -75,6 +84,7 @@ This version has the following changes:
 
 0.2.1 was released on the 29th of September 2003.
 It has the following changes:
+
 
 * There is now an additional version of kses, using the object-oriented
   paradigm. Thanks a lot to Richard R. Vasquez, Jr., who created it! Anyone
@@ -84,12 +94,15 @@ It has the following changes:
   web applications shouldn't despair, though, as both versions will be
   maintained with each release.
 
+
 * kses now has some new attribute value checks: minlen, minval and valueless.
   See docs/attribute-value-checks for an explanation.
+
 
 * For some reason, the Opera developers decided to make chr(173) a whitespace
   character in URL protocols, both when it occurs raw and in an entity. kses
   now handles this.
+
 
 * The URL protocol whitelisting system now decodes entities before removing
   NULLs and whitespaces.

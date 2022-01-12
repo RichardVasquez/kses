@@ -141,7 +141,8 @@ class Kses
                     $this->AddProtocol($data);
                     break;
                 case 'array':
-                    call_user_func_array( array($this,'AddProtocols'), $data);
+                    // call_user_func_array changed behavior in PHP8
+                    call_user_func_array( array( get_class($this),'AddProtocols'), array_values($data));
                     break;
                 default:
                     trigger_error(ERRORS['ADD_PROTOCOLS_BAD_ARG'], E_USER_WARNING);
@@ -261,7 +262,7 @@ class Kses
                     $this->RemoveProtocol($data);
                     break;
                 case 'array':
-                    call_user_func_array( array($this,'RemoveProtocols'), $data);
+                    call_user_func_array( array($this,'RemoveProtocols'), array_values($data));
                     break;
                 default:
                     trigger_error(ERRORS['REMOVE_PROTOCOL_NOT_STRING'], E_USER_WARNING);
@@ -310,7 +311,7 @@ class Kses
                     $this->AddProtocol($data);
                     break;
                 case 'array':
-                    call_user_func_array( array($this,'AddProtocols'), $data);
+                    call_user_func_array( array($this,'AddProtocols'), array_values($data));
                     break;
                 default:
                     trigger_error(ERRORS['SET_PROTOCOLS_BAD_ARG'], E_USER_WARNING);

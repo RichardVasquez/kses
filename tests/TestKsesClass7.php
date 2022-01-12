@@ -3,14 +3,16 @@
 const DS = DIRECTORY_SEPARATOR;
 include_once '..' . DS . 'kses.class.php';
 
+use PHPUnit\Framework\TestCase;
+
 /**
- * Class TestProcedural5
+ * Class TestProcedural7
  *
- * This is the unit test for PHP 5.6
- * and was run on phpunit-5.7.27
+ * This is the unit test for PHP 7 and PHP 8
+ * and was run on phpunit-9.5.11
  *
  */
-class TestKsesClass5 extends PHPUnit_Framework_TestCase
+class TestKsesClass7 extends TestCase
 {
     private $protoData = array(
         'kses' => array('http','https','mailto'),
@@ -58,7 +60,7 @@ class TestKsesClass5 extends PHPUnit_Framework_TestCase
         11 => '<a href="proto9://foo.foo.foo.foo.foo.org/">Test of "proto9"</a>',
         12 => '<td width="75">Bar!</td>',
         13 => '<td width="200">Long Cell</td>'
-      ];
+    ];
 
     private $tagsResult = [
         1=> '<a href="http://www.chaos.org/">www.chaos.org</a>',
@@ -321,6 +323,4 @@ class TestKsesClass5 extends PHPUnit_Framework_TestCase
         }
         $this->assertTrue(true);
     }
-
-
 }

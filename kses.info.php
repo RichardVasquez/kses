@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * THIS IS PRE-RELEASE CODE IN A DEVELOPMENT BRANCH
+ *
+ * Yes, it works, at times.  No, it's not set in stone.
+ *
+ * It'll get merged in an be the main version when it's
+ * ready.
+ */
+
 namespace Kses;
 
 const VERSION = '0.3.0';
@@ -31,6 +40,6 @@ if(PHP_MAJOR_VERSION == 5 and PHP_MINOR_VERSION < 6)
 }
 
 /*
- * Removed kses::Protocols - deprecated
- * removed kses::_hook
+ * Removed kses::Protocols - was deprecated
+ * removed kses::_hook - was deprecated
  */

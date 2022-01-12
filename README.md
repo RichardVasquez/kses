@@ -22,7 +22,7 @@ Buffer Overflows and Denial of Service attacks,
 among other things.
 
 Information for the previous version of this code:
-* [Version 0.2.2](https://github.com/RichardVasquez/kses/blahblahblah)
+* [Version 0.2.2](https://github.com/RichardVasquez/kses/releases/tag/v0.2.2)
 * Licensed under [GPL V2](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
 
 ## Features
